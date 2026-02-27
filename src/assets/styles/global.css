@@ -1,0 +1,16 @@
+:root {
+  --color-background: #0d0d0d;
+  --color-foreground: #fff;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
