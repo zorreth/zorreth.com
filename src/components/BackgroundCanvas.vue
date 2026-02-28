@@ -106,7 +106,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <canvas class="canvas" :class="{ replacing: isReplacing }" ref="canvas"></canvas>
+  <canvas class="canvas" :class="{ replacing: isReplacing }" ref="canvas" />
   <img
     class="bg"
     :class="{ replacing: isReplacing }"

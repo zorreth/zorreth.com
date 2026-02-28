@@ -21,7 +21,6 @@ defineProps({ href: String, icon: String })
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.1);
   color: var(--color-foreground);
   border-radius: 50px;
   width: 48px;
@@ -30,7 +29,8 @@ defineProps({ href: String, icon: String })
     transform 0.2s,
     box-shadow 0.2s;
 
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.3),
     0 8px 32px rgba(0, 0, 0, 0.2);
