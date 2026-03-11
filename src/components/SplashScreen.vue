@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+defineProps({ hide: Boolean })
+
 const fonts = [
   'Trade Winds',
   'Abril Fatface',
@@ -18,7 +20,9 @@ setInterval(() => {
 </script>
 
 <template>
-  <div class="splash" :style="{ fontFamily: fonts[fontIndex] }">zorreth</div>
+  <div class="splash" :class="{ hide: hide }" :style="{ fontFamily: fonts[fontIndex] }">
+    zorreth
+  </div>
 </template>
 
 <style scoped>
@@ -35,5 +39,15 @@ setInterval(() => {
   width: 100%;
   height: 100%;
   background-color: var(--color-background);
+  animation: 2s 2s forwards hide;
+}
+
+@keyframes hide {
+  100% {
+    visibility: hidden;
+    filter: blur(64px);
+    transform: scale(1.5);
+    opacity: 0;
+  }
 }
 </style>

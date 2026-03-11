@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import SplashScreen from './components/SplashScreen.vue'
 import IconLink from './components/IconLink.vue'
 import BackgroundCanvas from './components/BackgroundCanvas.vue'
@@ -19,17 +18,11 @@ const links = [
     icon: 'spotify',
   },
 ]
-
-const showSplash = ref(true)
-
-setTimeout(() => {
-  showSplash.value = false
-}, 2000)
 </script>
 
 <template>
-  <SplashScreen v-if="showSplash" />
-  <BackgroundCanvas v-if="!showSplash" />
+  <SplashScreen />
+  <BackgroundCanvas />
 
   <main class="content">
     <h1 class="logo">zorreth</h1>

@@ -123,21 +123,6 @@ onMounted(() => {
   height: 100%;
   top: 0;
   left: 0;
-  animation: 2s first-show;
-}
-
-@keyframes first-show {
-  0% {
-    opacity: 0.5;
-    filter: blur(64px);
-    transform: scale(1);
-  }
-
-  100% {
-    opacity: 1;
-    filter: blur(0);
-    transform: scale(1.1);
-  }
 }
 
 .canvas.replacing {
