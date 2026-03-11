@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps({ tip: String, fontFamily: String })
+defineProps({ tip: String })
 </script>
 
 <template>
@@ -8,7 +8,7 @@ defineProps({ tip: String, fontFamily: String })
       <slot />
     </div>
 
-    <div class="tooltip" :style="{ fontFamily }">
+    <div class="tooltip">
       {{ tip }}
     </div>
   </div>
@@ -22,6 +22,7 @@ defineProps({ tip: String, fontFamily: String })
 .tooltip {
   position: absolute;
   font-size: 18px;
+  font-family: 'Fira Mono', monospace;
   padding: 8px 24px;
   border-radius: 50px;
   right: 50%;

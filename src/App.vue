@@ -6,17 +6,15 @@ import BackgroundCanvas from './components/BackgroundCanvas.vue'
 import UITooltip from './components/UITooltip.vue'
 
 const links = [
-  { tip: 'Telegram', fontFamily: 'Kalam', href: 'https://t.me/zorreth', icon: 'telegram' },
+  { tip: 'Telegram', href: 'https://t.me/zorreth', icon: 'telegram' },
   {
     tip: 'Discord',
-    fontFamily: 'Merriweather Variable',
     href: 'https://discord.com/users/1006899291824078858',
     icon: 'discord',
   },
-  { tip: 'GitHub', fontFamily: 'Fira Mono', href: 'https://github.com/eliva1e', icon: 'github' },
+  { tip: 'GitHub', href: 'https://github.com/eliva1e', icon: 'github' },
   {
     tip: 'Spotify',
-    fontFamily: 'Poppins',
     href: 'https://open.spotify.com/artist/3KFWoswTJ6GuEf9N1thuz2',
     icon: 'spotify',
   },
@@ -41,7 +39,6 @@ setTimeout(() => {
         v-for="link in links"
         :key="link.href"
         :tip="link.tip"
-        :font-family="link.fontFamily"
       >
         <IconLink :href="link.href" :icon="link.icon" />
       </UITooltip>
