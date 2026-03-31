@@ -11,7 +11,7 @@ const links = [
     href: 'https://discord.com/users/1006899291824078858',
     icon: 'discord',
   },
-  { tip: 'GitHub', href: 'https://github.com/eliva1e', icon: 'github' },
+  { tip: 'GitHub', href: 'https://github.com/zorreth', icon: 'github' },
   {
     tip: 'Spotify',
     href: 'https://open.spotify.com/artist/3KFWoswTJ6GuEf9N1thuz2',
