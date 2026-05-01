@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const links = [
+  { name: 'Telegram', url: 'https://t.me/zorreth' },
+  { name: 'GitHub', url: 'https://github.com/zorreth' },
+  { name: 'Discord', url: 'https://discord.com/users/1006899291824078858' },
+];
+---
+
+<Layout title="zorreth">
+  <main>
+    <h1>ZRTH</h1>
+
+    <hr />
+
+    <div class="links">
+      {links.map((link) => <a href={link.url}>{link.name}</a>)}
+    </div>
+
+    <span class="copy">&copy; 2026 <b>Kirill Siukhin</b> aka <b>zorreth</b></span>
+  </main>
+</Layout>
+
+<style>
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    height: 100%;
+  }
+
+  h1 {
+    font-size: 48px;
+    font-weight: 600;
+		letter-spacing: 2px;
+		text-shadow: 0 0 8px var(--color-text);
+  }
+
+  hr {
+    width: 100%;
+    border: 1px solid var(--color-bg-light);
+  }
+
+  .links {
+    display: flex;
+    gap: 12px;
+		margin-bottom: 32px;
+  }
+
+  a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+	.copy {
+		font-size: 14px;
+	}
+</style>
