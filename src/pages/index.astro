@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const donationAddress = 'UQBO8_Di1JEOQRxE2t-Wjy4QNF5cHg-bRnrlAmVUBLlrZPVC';
+
 const links = [
   { name: 'Telegram', url: 'https://t.me/zorreth' },
   { name: 'GitHub', url: 'https://github.com/zorreth' },
@@ -18,9 +20,31 @@ const links = [
       {links.map((link) => <a href={link.url}>{link.name}</a>)}
     </div>
 
-    <span class="copy">&copy; 2026 <b>Kirill Siukhin</b> aka <b>zorreth</b></span>
+    <footer>
+      <span>&copy; 2026 <b>Kirill Siukhin</b> aka <b>zorreth</b></span>
+      <span>
+        Donate: <b class="address" title="Copy" data-address={donationAddress}>{donationAddress}</b> (TON)
+      </span>
+    </footer>
   </main>
 </Layout>
+
+<script>
+  const addressText: HTMLSpanElement | null = document.querySelector('.address');
+
+  addressText?.addEventListener('click', () => {
+    const address = addressText.dataset.address;
+
+    if (address) {
+      navigator.clipboard.writeText(address);
+      addressText.innerText = 'Copied! <3';
+
+      setTimeout(() => {
+        addressText.innerText = address;
+      }, 1500);
+    }
+  });
+</script>
 
 <style>
   main {
@@ -35,8 +59,8 @@ const links = [
   h1 {
     font-size: 48px;
     font-weight: 600;
-		letter-spacing: 2px;
-		text-shadow: 0 0 8px var(--color-text);
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px var(--color-text);
   }
 
   hr {
@@ -47,7 +71,7 @@ const links = [
   .links {
     display: flex;
     gap: 12px;
-		margin-bottom: 32px;
+    margin-bottom: 32px;
   }
 
   a {
@@ -60,7 +84,16 @@ const links = [
     font-weight: 600;
   }
 
-	.copy {
-		font-size: 14px;
-	}
+  footer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .address {
+    white-space: nowrap;
+    cursor: pointer;
+  }
 </style>
