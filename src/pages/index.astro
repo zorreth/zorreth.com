@@ -8,6 +8,21 @@ const links = [
   { name: 'GitHub', url: 'https://github.com/zorreth' },
   { name: 'Discord', url: 'https://discord.com/users/1006899291824078858' },
 ];
+
+const projects = [
+  {
+    name: 'Cube (early release)',
+    description: 'Speedcubing timer, social platform and progress tracker',
+    repo: 'https://github.com/zorreth/cube',
+    url: 'https://cube.zorreth.com',
+  },
+  {
+    name: 'Balabol.cc (in-dev)',
+    description: 'The open social network integrated with TON',
+    repo: null,
+    url: null,
+  },
+];
 ---
 
 <Layout title="zorreth">
@@ -17,7 +32,25 @@ const links = [
     <hr />
 
     <div class="links">
-      {links.map((link) => <a href={link.url}>{link.name}</a>)}
+      {links.map(({ name, url }) => <a href={url}>{name}</a>)}
+    </div>
+
+    <div class="projects">
+      <h2>Projects</h2>
+      {
+        projects.map(({ name, description, repo, url }) => (
+          <span>
+            {url ? (
+              <a href={url} target="_blank">
+                <b>{name}</b>
+              </a>
+            ) : (
+              <b>{name}</b>
+            )}{' '}
+            – {description}
+          </span>
+        ))
+      }
     </div>
 
     <footer>
@@ -74,6 +107,14 @@ const links = [
     margin-bottom: 32px;
   }
 
+  .projects {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
   a {
     color: var(--color-text);
     text-decoration: none;
@@ -88,7 +129,7 @@ const links = [
     display: flex;
     flex-direction: column;
     gap: 8px;
-    font-size: 12px;
+    font-size: 14px;
     text-align: center;
   }
 
