@@ -47,7 +47,7 @@ const projects = [
             ) : (
               <b>{name}</b>
             )}{' '}
-            – {description}
+            {repo && <a href={repo}>[repo]</a>} – {description}
           </span>
         ))
       }
