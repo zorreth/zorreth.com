@@ -35,7 +35,7 @@ const projects = [
       {links.map(({ name, url }) => <a href={url}>{name}</a>)}
     </div>
 
-    <div class="projects">
+    <section>
       <h2>Projects</h2>
       {
         projects.map(({ name, description, repo, url }) => (
@@ -51,13 +51,17 @@ const projects = [
           </span>
         ))
       }
-    </div>
+    </section>
+
+    <section>
+      <h2>Donate</h2>
+      <span>
+        TON: <b class="address" title="Copy" data-address={donationAddress}>{donationAddress}</b>
+      </span>
+    </section>
 
     <footer>
-      <span>&copy; 2026 <b>Kirill Siukhin</b> aka <b>zorreth</b></span>
-      <span>
-        Donate: <b class="address" title="Copy" data-address={donationAddress}>{donationAddress}</b> (TON)
-      </span>
+      &copy; 2026 <b>Kirill Siukhin</b> (aka <b>zorreth</b>)
     </footer>
   </main>
 </Layout>
@@ -107,11 +111,14 @@ const projects = [
     margin-bottom: 32px;
   }
 
-  .projects {
+  section {
     display: flex;
     flex-direction: column;
     gap: 12px;
     text-align: center;
+    margin: 0 12px 32px 12px;
+  }
+  section:last-of-type {
     margin-bottom: 64px;
   }
 
@@ -119,16 +126,12 @@ const projects = [
     color: var(--color-text);
     text-decoration: none;
   }
-
   a:hover {
     text-decoration: underline;
     font-weight: 600;
   }
 
   footer {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
     font-size: 14px;
     text-align: center;
   }
