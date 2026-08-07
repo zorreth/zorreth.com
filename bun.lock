@@ -8,7 +8,6 @@
         "@lucide/astro": "^1.30.0",
         "@tailwindcss/vite": "^4.3.3",
         "@tsparticles/engine": "^4.3.2",
-        "@tsparticles/preset-ambient": "^4.3.2",
         "@tsparticles/slim": "^4.3.2",
         "astro": "7.1.6",
         "mouse-animations": "^1.0.0",
@@ -386,8 +385,6 @@
     "@tsparticles/plugin-move": ["@tsparticles/plugin-move@4.3.2", "", { "peerDependencies": { "@tsparticles/engine": "4.3.2" } }, "sha512-8nSDxWhxVWl9JzX/fSZwz5ZVzEMMFJLF3vizjfag2zE+jc4Nidfs9ZOPrD4yxpKSfZiv1ZwJpoOhT2ch4sVTug=="],
 
     "@tsparticles/plugin-rgb-color": ["@tsparticles/plugin-rgb-color@4.3.2", "", { "peerDependencies": { "@tsparticles/engine": "4.3.2" } }, "sha512-/4xZBlEWqqG7VscJzC2VimA62fxDboe4XO1+m8LeM2ytxrhEpNk14TeBJt+zCc8jBkFjpKOdmTZ0VYyuK4FtDQ=="],
-
-    "@tsparticles/preset-ambient": ["@tsparticles/preset-ambient@4.3.2", "", { "dependencies": { "@tsparticles/basic": "4.3.2", "@tsparticles/engine": "4.3.2" } }, "sha512-WGPxd1zaQAiK762R12v1WgA25fYxP77KI8x7bIuAq6/nbpv2KQBpOzjAobOCjsOQLzhbJJuHjBOssgCzSVXG2A=="],
 
     "@tsparticles/shape-circle": ["@tsparticles/shape-circle@4.3.2", "", { "peerDependencies": { "@tsparticles/engine": "4.3.2" } }, "sha512-IOStpEafsK9vIZsXtrO1zpqF3pW5ydstD8db4omioAnoYFfKwbgyfkQz9l4pDnJy8636RbnQNVbYGlyxKuJ0cw=="],
 
