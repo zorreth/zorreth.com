@@ -6,7 +6,7 @@ import { Font } from 'astro:assets';
 const { title } = Astro.props;
 ---
 
-<html lang="en" class="cursor-none">
+<html lang="en" class="cursor-none dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,9 +14,19 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <Font cssVariable="--font-fira-code" />
     <title>{title}</title>
+
+    <script is:inline>
+      const localTheme = localStorage.getItem('theme');
+
+      if (localTheme && localTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
   </head>
 
-  <body class="text-white bg-neutral-950 font-mono antialiased">
+  <body
+    class="text-white dark:bg-neutral-950 bg-neutral-200 transition-colors duration-500 ease-in-out font-mono antialiased"
+  >
     <slot />
   </body>
 </html>
