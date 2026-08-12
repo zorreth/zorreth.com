@@ -29,6 +29,7 @@ const navLinks = [
         <a
           href={href}
           class="transition duration-500 hover:bg-neutral-200 hover:text-black rounded-full py-2 px-4"
+          data-nav-link
         >
           {name}
         </a>
@@ -43,3 +44,16 @@ const navLinks = [
     Contact Me <ChevronRight />
   </a>
 </header>
+
+<script>
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]');
+
+  function updateLinkState() {
+    if (window.scrollY < window.innerHeight) {
+      navLinks[0].classList.add('bg-neutral-200', 'text-black');
+    }
+  }
+
+  updateLinkState();
+  document.addEventListener('scroll', updateLinkState);
+</script>
