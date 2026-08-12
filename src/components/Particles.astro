@@ -1,0 +1,89 @@
+<div id="tsparticles"></div>
+
+<script>
+  import { tsParticles, type Container, type ILoadParams } from '@tsparticles/engine';
+  import { loadSlim } from '@tsparticles/slim';
+
+  await loadSlim(tsParticles);
+
+  function getParticleOptions(color: string): ILoadParams {
+    return {
+      id: 'tsparticles',
+      options: {
+        fpsLimit: 60,
+        fullScreen: {
+          enable: true,
+          zIndex: -1,
+        },
+        particles: {
+          paint: { fill: { color: { value: color } } },
+          number: { value: 80, density: { enable: true } },
+          shape: { type: 'circle' },
+          opacity: { value: { min: 0.1, max: 0.6 } },
+          size: { value: { min: 1, max: 4 } },
+          links: {
+            enable: true,
+            distance: 150,
+            opacity: 0.4,
+            width: 1,
+            color: color,
+          },
+          move: {
+            enable: true,
+            speed: 0.3,
+            direction: 'none',
+            random: true,
+            outModes: { default: 'bounce' },
+          },
+        },
+        interactivity: {
+          events: {
+            onHover: {
+              enable: true,
+              mode: ['bubble', 'slow', 'grab'],
+            },
+          },
+          modes: {
+            bubble: {
+              distance: 200,
+              size: 6,
+              opacity: 1,
+              duration: 2,
+              mix: false,
+            },
+            slow: {
+              factor: 0.5,
+              radius: 200,
+            },
+            grab: {
+              distance: 200,
+              links: {
+                enable: true,
+                opacity: 0.6,
+                width: 1,
+                color: color,
+              },
+            },
+          },
+        },
+      },
+    };
+  }
+
+  let particlesInstance: Container | undefined;
+
+  async function renderParticles() {
+    const isDark = document.documentElement.classList.contains('dark');
+    const themeColor = isDark ? '#ffffff' : '#000000';
+
+    if (particlesInstance) {
+      particlesInstance.destroy();
+    }
+
+    particlesInstance = await tsParticles.load(getParticleOptions(themeColor));
+  }
+
+  renderParticles();
+
+  window.addEventListener('themechange', renderParticles);
+</script>

@@ -12,12 +12,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@lucide/astro": "^1.30.0",
+    "@lucide/astro": "^1.31.0",
     "@tailwindcss/vite": "^4.3.3",
     "@tsparticles/engine": "^4.3.2",
     "@tsparticles/slim": "^4.3.2",
     "astro": "7.1.6",
-    "mouse-animations": "^1.0.0",
+    "mouse-animations": "^1.1.0",
     "tailwindcss": "^4.3.3"
   }
 }
