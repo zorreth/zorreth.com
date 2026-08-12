@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { ChevronRight, Moon, Sun } from '@lucide/astro';
 
-const links = [
+const navLinks = [
   {
     name: 'About',
     href: '#about',
@@ -24,18 +24,18 @@ const links = [
   <main class="transition duration-500 ease-in-out">
     <header class="flex items-center justify-center gap-4 mt-4">
       <button
-        class="bg-neutral-400/80 dark:bg-neutral-600/80 transition duration-500 hover:scale-105 active:scale-95 p-4 rounded-full group"
+        class="bg-neutral-400/60 dark:bg-neutral-600/60 transition duration-500 hover:scale-105 active:scale-95 p-4 rounded-full group"
         data-theme-button
       >
-        <Moon class="hidden dark:block" />
-        <Sun class="block dark:hidden" />
+        <Moon class="hidden dark:block fill-white" />
+        <Sun class="block dark:hidden fill-white" />
       </button>
 
       <nav
-        class="bg-neutral-400/80 dark:bg-neutral-600/80 transition duration-500 p-2 rounded-full flex gap-2"
+        class="bg-neutral-400/60 dark:bg-neutral-600/60 transition duration-500 p-2 rounded-full flex gap-2"
       >
         {
-          links.map(({ name, href }) => (
+          navLinks.map(({ name, href }) => (
             <a
               href={href}
               class="transition duration-500 hover:bg-neutral-200 hover:text-black rounded-full py-2 px-4"
@@ -48,7 +48,7 @@ const links = [
 
       <a
         href="#contact"
-        class="flex items-center transition duration-500 bg-neutral-400/80 dark:bg-neutral-600/80 hover:scale-105 active:scale-95 gap-2 w-fit p-4 px-6 rounded-full"
+        class="hidden md:flex items-center transition duration-500 bg-neutral-400/60 dark:bg-neutral-600/60 hover:scale-105 active:scale-95 gap-2 w-fit p-4 px-6 rounded-full"
       >
         Contact Me <ChevronRight />
       </a>
@@ -56,12 +56,12 @@ const links = [
 
     <div class="container mx-auto my-32" id="about">
       <h1
-        class="font-bold text-4xl transition bg-neutral-500/40 dark:bg-neutral-600/40 w-fit p-4 rounded-full mb-4"
+        class="text-black dark:text-white font-bold text-4xl transition-colors p-4 rounded-full mb-4"
       >
-        Hi! My name is Kirill.
+        Hi, my name is Kirill!
       </h1>
       <p
-        class="font-bold text-xl transition bg-neutral-500/40 dark:bg-neutral-600/40 w-fit p-4 rounded-full mb-4"
+        class="text-black dark:text-white font-bold text-xl transition-colors p-4 rounded-full mb-4"
       >
         I am a full-stack developer, photographer, speedcuber, and musician.
       </p>
@@ -145,13 +145,17 @@ const links = [
 
   let particlesInstance = await tsParticles.load(getParticleOptions(initialThemeColor));
 
-  let cursor = new CustomCursor({
-    innerSize: 6,
-    outerSize: 36,
-    smoothness: 0.15,
-    innerColor: initialThemeColor,
-    outerColor: initialThemeColor,
-  });
+  let cursor: CustomCursor | null = null;
+
+  if (window.innerWidth > 768) {
+    cursor = new CustomCursor({
+      innerSize: 6,
+      outerSize: 36,
+      smoothness: 0.15,
+      innerColor: initialThemeColor,
+      outerColor: initialThemeColor,
+    });
+  }
 
   const main = document.querySelector('main');
   const themeButton = document.querySelector<HTMLButtonElement>('[data-theme-button]');
@@ -169,15 +173,17 @@ const links = [
       particlesInstance = await tsParticles.load(getParticleOptions(newColor));
     }
 
-    cursor.destroy();
+    if (cursor) {
+      cursor.destroy();
 
-    cursor = new CustomCursor({
-      innerSize: 6,
-      outerSize: 36,
-      smoothness: 0.15,
-      innerColor: newColor,
-      outerColor: newColor,
-    });
+      cursor = new CustomCursor({
+        innerSize: 6,
+        outerSize: 36,
+        smoothness: 0.15,
+        innerColor: newColor,
+        outerColor: newColor,
+      });
+    }
 
     requestAnimationFrame(() => {
       setTimeout(() => {
