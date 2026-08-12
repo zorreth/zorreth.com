@@ -5,25 +5,19 @@ import { Moon, Sun } from '@lucide/astro';
 <button
   class="bg-neutral-400/60 dark:bg-neutral-600/60 transition duration-500 hover:scale-105 active:scale-95 p-4 rounded-full group"
   id="theme-button"
+  data-theme-button
 >
   <Moon class="hidden dark:block fill-white" />
   <Sun class="block dark:hidden fill-white" />
 </button>
 
 <script>
-  const themeButton = document.querySelector('#theme-button');
-  const main = document.querySelector('main');
+  const themeButton = document.querySelector('[data-theme-button]');
 
   themeButton?.addEventListener('click', async () => {
-    main?.classList.add('blur-md', 'opacity-70', 'scale-95');
-
     const isDarkNow = document.documentElement.classList.toggle('dark');
     localStorage.setItem('theme', isDarkNow ? 'dark' : 'light');
 
     window.dispatchEvent(new Event('themechange'));
-
-    setTimeout(() => {
-      main?.classList.remove('blur-md', 'opacity-70', 'scale-95');
-    }, 300);
   });
 </script>
