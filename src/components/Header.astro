@@ -12,13 +12,13 @@ const navLinks = [
     href: '#projects',
   },
   {
-    name: 'Music',
-    href: '#music',
+    name: 'Contact',
+    href: '#contact',
   },
 ];
 ---
 
-<header class="flex items-center justify-center gap-4 mt-4">
+<header class="flex items-center justify-between md:justify-center gap-4 m-4">
   <ThemeToggle />
 
   <nav
@@ -36,13 +36,6 @@ const navLinks = [
       ))
     }
   </nav>
-
-  <a
-    href="#contact"
-    class="hidden md:flex items-center transition duration-500 bg-neutral-400/60 dark:bg-neutral-600/60 hover:scale-105 active:scale-95 gap-2 w-fit p-4 px-6 rounded-full"
-  >
-    Contact Me <ChevronRight />
-  </a>
 </header>
 
 <script>
