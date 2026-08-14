@@ -6,27 +6,17 @@ import { Font } from 'astro:assets';
 const { title } = Astro.props;
 ---
 
-<html lang="en" class="cursor-none dark">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="I'm zorreth, and here you can find my links." />
+    <meta name="description" content="Hi I'm zorreth!" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <Font cssVariable="--font-fira-code" />
+    <Font cssVariable="--font-roboto" />
     <title>{title}</title>
-
-    <script is:inline>
-      const localTheme = localStorage.getItem('theme');
-
-      if (localTheme && localTheme === 'light') {
-        document.documentElement.classList.remove('dark');
-      }
-    </script>
   </head>
 
-  <body
-    class="text-white dark:bg-neutral-950 bg-neutral-200 transition-colors duration-500 ease-in-out font-mono antialiased"
-  >
+  <body class="antialiased">
     <slot />
   </body>
 </html>
