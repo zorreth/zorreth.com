@@ -11,8 +11,9 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.fontsource(),
-      name: 'Roboto',
-      cssVariable: '--font-roboto',
+      name: 'Fira Code',
+      cssVariable: '--font-fira-code',
+      weights: [400, 600],
     },
   ],
 });
