@@ -14,5 +14,10 @@ export default defineConfig({
       name: 'DM Sans',
       cssVariable: '--font-dm-sans',
     },
+    {
+      provider: fontProviders.fontsource(),
+      name: 'Caveat',
+      cssVariable: '--font-caveat',
+    },
   ],
 });
