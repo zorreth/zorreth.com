@@ -11,9 +11,13 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.fontsource(),
-      name: 'Fira Code',
-      cssVariable: '--font-fira-code',
-      weights: [400, 600],
+      name: 'DM Sans',
+      cssVariable: '--font-dm-sans',
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: 'Caveat',
+      cssVariable: '--font-caveat',
     },
   ],
 });

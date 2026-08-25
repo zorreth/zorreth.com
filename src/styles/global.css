@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-  --font-mono: var(--font-fira-code);
+  --font-sans: var(--font-dm-sans);
+  --font-caveat: var(--font-caveat);
 }

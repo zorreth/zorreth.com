@@ -1,0 +1,23 @@
+---
+import { Moon, Sun } from '@lucide/astro';
+---
+
+<button
+  class="text-black dark:text-white transition hover:scale-110 active:scale-90 cursor-pointer"
+  id="theme-button"
+  data-theme-button
+>
+  <Moon class="hidden dark:block fill-black dark:fill-white" />
+  <Sun class="block dark:hidden fill-black dark:fill-white" />
+</button>
+
+<script>
+  const themeButton = document.querySelector('[data-theme-button]');
+
+  themeButton?.addEventListener('click', async () => {
+    const isDarkNow = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', isDarkNow ? 'dark' : 'light');
+
+    window.dispatchEvent(new Event('themechange'));
+  });
+</script>
