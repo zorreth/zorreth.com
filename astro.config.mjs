@@ -16,8 +16,8 @@ export default defineConfig({
     },
     {
       provider: fontProviders.fontsource(),
-      name: 'Faster One',
-      cssVariable: '--font-faster-one',
+      name: 'Just Another Hand',
+      cssVariable: '--font-just-another-hand',
     },
   ],
 });
