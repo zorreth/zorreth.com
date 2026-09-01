@@ -16,8 +16,8 @@ export default defineConfig({
     },
     {
       provider: fontProviders.fontsource(),
-      name: 'Caveat',
-      cssVariable: '--font-caveat',
+      name: 'Faster One',
+      cssVariable: '--font-faster-one',
     },
   ],
 });

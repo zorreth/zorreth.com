@@ -3,7 +3,7 @@ import { Moon, Sun } from '@lucide/astro';
 ---
 
 <button
-  class="text-black dark:text-white transition hover:scale-110 active:scale-90 cursor-pointer"
+  class="transition hover:scale-110 active:scale-90 cursor-pointer"
   id="theme-button"
   data-theme-button
 >
@@ -13,11 +13,16 @@ import { Moon, Sun } from '@lucide/astro';
 
 <script>
   const themeButton = document.querySelector('[data-theme-button]');
+  const main = document.querySelector('main');
 
   themeButton?.addEventListener('click', async () => {
     const isDarkNow = document.documentElement.classList.toggle('dark');
     localStorage.setItem('theme', isDarkNow ? 'dark' : 'light');
 
-    window.dispatchEvent(new Event('themechange'));
+    main?.classList.add('blur-md', 'opacity-70', 'scale-95');
+
+    setTimeout(() => {
+      main?.classList.remove('blur-md', 'opacity-70', 'scale-95');
+    }, 300);
   });
 </script>

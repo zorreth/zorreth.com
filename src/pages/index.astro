@@ -35,13 +35,13 @@ const links = [
 <Layout title="zorreth">
   <AnimatedGradient>
     <header class="container mx-auto flex justify-between items-center p-4">
-      <a href="/" class="transition hover:scale-105 active:scale-95 text-4xl font-caveat">
+      <a href="/" class="transition hover:scale-105 active:scale-95 text-4xl font-display">
         zorreth
       </a>
       <ThemeToggle />
     </header>
 
-    <main class="transition duration-500 ease-in-out blur-md scale-90">
+    <main class="transition duration-500 ease-in-out">
       <section class="container mx-auto my-12 text-center" id="about">
         <h1
           class="text-neutral-800 dark:text-white font-bold text-2xl md:text-4xl transition-colors p-4"
@@ -80,19 +80,3 @@ const links = [
     </main>
   </AnimatedGradient>
 </Layout>
-
-<script>
-  const main = document.querySelector('main');
-
-  window.addEventListener('themechange', () => {
-    main?.classList.add('blur-md', 'opacity-70', 'scale-95');
-
-    setTimeout(() => {
-      main?.classList.remove('blur-md', 'opacity-70', 'scale-95');
-    }, 300);
-  });
-
-  requestAnimationFrame(() => {
-    main?.classList.remove('blur-md', 'scale-90');
-  });
-</script>
