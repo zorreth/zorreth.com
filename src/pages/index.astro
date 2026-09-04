@@ -30,6 +30,45 @@ const links = [
     icon: GitHubIcon,
   },
 ];
+
+const projects = [
+  {
+    name: 'zorreth.com',
+    description: 'The personal website you are visiting right now',
+    links: [{ name: 'GitHub', href: 'https://github.com/zorreth/zorreth.github.io' }],
+    tags: ['astro'],
+  },
+  {
+    name: 'balabol.cc',
+    description: 'The easiest social landing page hosting and link shortener',
+    links: [{ name: 'GitHub', href: 'https://github.com/zorreth/balabol.cc' }],
+    tags: ['nextjs', 'hono', 'drizzle', 'postgres'],
+  },
+  {
+    name: 'Cubean',
+    description: 'Speedcubing timer, social platform and progress tracker',
+    links: [{ name: 'GitHub', href: 'https://github.com/zorreth/cubean' }],
+    tags: ['nextjs', 'shadcn-ui', 'fastify', 'drizzle', 'postgres'],
+  },
+  {
+    name: 'Space',
+    description: 'The infinite pixel art canvas',
+    links: [{ name: 'GitHub', href: 'https://github.com/zorreth/space' }],
+    tags: ['rust', 'axum', 'sqlx', 'postgres'],
+  },
+  {
+    name: 'Cheburek',
+    description: 'Text generation bot for the Discord servers',
+    links: [{ name: 'GitHub', href: 'https://github.com/zorreth/cheburek' }],
+    tags: ['discord.js', 'sqlite'],
+  },
+  {
+    name: 'Eloquent',
+    description: 'Minecraft mod that gives every mob a unique AI identity, memory, and voice',
+    links: [{ name: 'GitHub', href: 'https://github.com/zorreth/eloquent' }],
+    tags: ['fabric'],
+  },
+];
 ---
 
 <Layout title="zorreth">
@@ -41,7 +80,7 @@ const links = [
       <ThemeToggle />
     </header>
 
-    <main class="transition duration-500 ease-in-out">
+    <main class="transition duration-500 ease-in-out flex flex-col">
       <section class="container mx-auto my-12 text-center" id="about">
         <h1
           class="text-neutral-800 dark:text-white font-bold text-2xl md:text-4xl transition-colors p-4"
@@ -53,7 +92,7 @@ const links = [
         </p>
       </section>
 
-      <section class="flex flex-col items-center mb-24 gap-4">
+      <section class="flex flex-col items-center mb-16 gap-4">
         {
           links.map((link) => {
             const Icon = link.icon;
@@ -72,7 +111,34 @@ const links = [
         }
       </section>
 
-      <footer class="text-center">
+      <section class="flex flex-col items-center gap-4 mb-24">
+        <h2 class="font-bold text-3xl">Projects</h2>
+
+        <div class="container px-4 grid lg:grid-cols-2 xl:grid-cols-3 gap-4">
+          {
+            projects.map((p) => (
+              <div class="flex flex-col min-h-48 p-4 backdrop-blur transition-shadow shadow-lg hover:shadow-white/15 bg-white/15 border-2 border-white/20 rounded-lg">
+                <h3 class="font-bold text-xl">{p.name}</h3>
+                <p class="mb-2">{p.description}</p>
+                <div class="flex gap-2 mb-auto">
+                  {p.links.map((l) => (
+                    <a href={l.href} class="font-bold hover:underline">
+                      {l.name}
+                    </a>
+                  ))}
+                </div>
+                <div class="flex gap-2">
+                  {p.tags.map((t) => (
+                    <span class="rounded-full bg-white/40 px-2 py-0.5 text-sm">{t}</span>
+                  ))}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <footer class="text-center pb-16">
         <p class="text-neutral-600 dark:text-neutral-400 transition-colors">
           &copy; 2026 Kirill Siukhin. All rights reserved.
         </p>
