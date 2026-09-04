@@ -112,15 +112,15 @@ const projects = [
       </section>
 
       <section class="flex flex-col items-center gap-4 mb-24">
-        <h2 class="font-bold text-3xl">Projects</h2>
+        <h2 class="font-bold text-3xl">Things I make</h2>
 
         <div class="container px-4 grid lg:grid-cols-2 xl:grid-cols-3 gap-4">
           {
             projects.map((p) => (
-              <div class="flex flex-col min-h-48 p-4 backdrop-blur transition-shadow shadow-lg hover:shadow-white/15 bg-white/15 border-2 border-white/20 rounded-lg">
+              <div class="p-4 backdrop-blur transition-shadow shadow-lg hover:shadow-white/15 bg-white/15 border-2 border-white/20 rounded-lg">
                 <h3 class="font-bold text-xl">{p.name}</h3>
-                <p class="mb-2">{p.description}</p>
-                <div class="flex gap-2 mb-auto">
+                <p class="mb-4">{p.description}</p>
+                <div class="flex gap-2 mb-4">
                   {p.links.map((l) => (
                     <a href={l.href} class="font-bold hover:underline">
                       {l.name}
@@ -129,7 +129,7 @@ const projects = [
                 </div>
                 <div class="flex flex-wrap gap-2">
                   {p.tags.map((t) => (
-                    <span class="rounded-full bg-white/40 px-2 py-0.5 text-sm">{t}</span>
+                    <span class="rounded-full bg-white/20 px-2 py-0.5 text-sm">{t}</span>
                   ))}
                 </div>
               </div>
