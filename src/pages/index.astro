@@ -101,7 +101,7 @@ const projects = [
               <a
                 href={link.href}
                 style={`background-color: ${link.bg}; color: ${link.fg};`}
-                class="relative text-center text-neutral-800 p-3 rounded-full w-80 font-bold transition shadow hover:scale-105 active:scale-95"
+                class="relative text-center text-neutral-800 p-3 rounded-full w-80 font-bold transition-transform shadow hover:scale-105 active:scale-100"
               >
                 <Icon class="absolute" />
                 {link.name}
@@ -117,7 +117,7 @@ const projects = [
         <div class="container px-4 grid lg:grid-cols-2 xl:grid-cols-3 gap-4">
           {
             projects.map((p) => (
-              <div class="p-4 transition-shadow shadow-lg hover:shadow-white/15 bg-white/15 border-2 border-white/20 rounded-lg">
+              <div class="p-4 transition-transform hover:scale-102 bg-white/15 border-2 border-white/20 rounded-lg">
                 <h3 class="font-bold text-xl">{p.name}</h3>
                 <p class="mb-4">{p.description}</p>
                 <div class="flex gap-2 mb-4">
